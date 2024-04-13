@@ -1,0 +1,6 @@
+@ADSProyect_HostAddress = http://localhost:5243
+
+GET {{ADSProyect_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
