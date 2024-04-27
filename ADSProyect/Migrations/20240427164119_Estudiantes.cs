@@ -18,7 +18,7 @@ namespace ADSProyect.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NombreEstudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ApellidoEstudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CodigoEstuainte = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CodigoEstudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CorreoEstudiante = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: false)
                 },
                 constraints: table =>

@@ -8,7 +8,7 @@ namespace ADSProyect.Repositories
         private List<Estudiante> lstEstudiantes = new List<Estudiante>
         {
             new Estudiante{IdEstudiante = 1, NombreEstudiante = "Lester Balmore", 
-                           ApellidoEstudiante = "Ortega Serrano", CodigoEstuainte = "OS24I04001", 
+                           ApellidoEstudiante = "Ortega Serrano", CodigoEstudiante = "OS24I04001", 
                            CorreoEstudiante = "os24i04001@usonsonate.edu.sv"}
         };
 

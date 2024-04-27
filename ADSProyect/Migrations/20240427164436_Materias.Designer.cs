@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADSProyect.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240427154450_Estudiantes")]
-    partial class Estudiantes
+    [Migration("20240427164436_Materias")]
+    partial class Materias
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,47 @@ namespace ADSProyect.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ADSProject.Models.Materia", b =>
+                {
+                    b.Property<int>("IdMateria")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMateria"));
+
+                    b.Property<string>("NombreMateria")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("IdMateria");
+
+                    b.ToTable("Materias");
+                });
+
+            modelBuilder.Entity("ADSProyect.Models.Carrera", b =>
+                {
+                    b.Property<int>("IdCarrera")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCarrera"));
+
+                    b.Property<string>("CodigoCarrera")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<string>("NombreCarrera")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("IdCarrera");
+
+                    b.ToTable("Carreras");
+                });
 
             modelBuilder.Entity("ADSProyect.Models.Estudiante", b =>
                 {
@@ -37,7 +78,7 @@ namespace ADSProyect.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("CodigoEstuainte")
+                    b.Property<string>("CodigoEstudiante")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");

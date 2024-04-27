@@ -9,7 +9,7 @@ namespace ADSProyect.Models
         private int idEstudiante;
         private string nombreEstudiante;
         private string apellidoEstudiante;
-        private string codigoEstuainte;
+        private string codigoEstudiante;
         private string correoEstudiante;
 
         //          NOTA: LOS REQUERIMIENTOS SE PONEN ARRIBA DE LAS FUNCIONES
@@ -27,7 +27,7 @@ namespace ADSProyect.Models
         [Required(ErrorMessage = "Este es un campo requerido")]
         [MinLength(length: 12, ErrorMessage = "La longitud del campo no puede ser menor de 12 caracteres")]
         [MaxLength(length: 50, ErrorMessage = "La longitud del campo no puede ser mayor de 50 caracteres")]
-        public string CodigoEstuainte { get => codigoEstuainte; set => codigoEstuainte = value; }
+        public string CodigoEstudiante { get => codigoEstudiante; set => codigoEstudiante = value; }
 
         [Required(ErrorMessage = "Este es un campo requerido")]
         [MaxLength(length: 254, ErrorMessage = "La longitud del campo no puede ser mayor de 254 caracteres")]
