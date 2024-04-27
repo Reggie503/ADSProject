@@ -62,3 +62,4 @@ C:\Users\LENOVO\Desktop\Analisis de Sistemas\Laboratorio\Sesion 2\ADSProyect\ADS
 C:\Users\LENOVO\Desktop\Analisis de Sistemas\Laboratorio\Sesion 2\ADSProyect\ADSProyect\obj\Debug\net8.0\ADSProyect.pdb
 C:\Users\LENOVO\Desktop\Analisis de Sistemas\Laboratorio\Sesion 2\ADSProyect\ADSProyect\obj\Debug\net8.0\ADSProyect.genruntimeconfig.cache
 C:\Users\LENOVO\Desktop\Analisis de Sistemas\Laboratorio\Sesion 2\ADSProyect\ADSProyect\obj\Debug\net8.0\ref\ADSProyect.dll
+C:\Users\LENOVO\Desktop\Analisis de Sistemas\Laboratorio\Sesion 2\ADSProyect\ADSProyect\obj\Debug\net8.0\ADSProyect.sourcelink.json
