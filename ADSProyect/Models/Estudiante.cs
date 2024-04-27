@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ADSProyect.Models
 {
+    [PrimaryKey(nameof(IdEstudiante))]
     public class Estudiante
     {
         private int idEstudiante;
