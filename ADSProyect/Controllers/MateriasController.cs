@@ -27,7 +27,14 @@ namespace ADSProject.Controllers
 		{
 			try
 			{
-				int contador = this.materia.AgregarMateria(materia);
+                // Verificar que todas las validaciones por atribitos del modelo este correctas
+                if (!ModelState.IsValid)
+                {
+                    //En caso de no cumplir con todas las valicaiones se procede a retornar una respuesta erronea
+                    return BadRequest(ModelState);
+                }
+
+                int contador = this.materia.AgregarMateria(materia);
 				if (contador > 0)
 				{
 					pCodRespuesta = COD_EXITO;
@@ -53,7 +60,14 @@ namespace ADSProject.Controllers
 		{
 			try
 			{
-				int contador = this.materia.ActualizarMateria(idMateria, materia);
+                // Verificar que todas las validaciones por atribitos del modelo este correctas
+                if (!ModelState.IsValid)
+                {
+                    //En caso de no cumplir con todas las valicaiones se procede a retornar una respuesta erronea
+                    return BadRequest(ModelState);
+                }
+
+                int contador = this.materia.ActualizarMateria(idMateria, materia);
 				if (contador > 0)
 				{
 					pCodRespuesta = COD_EXITO;
