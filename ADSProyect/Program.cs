@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 
 //              ADSProject
 // Configurando inyecion de dependencias
-builder.Services.AddSingleton<IEstudiante, EstudianteRepository>();
+builder.Services.AddScoped<IEstudiante, EstudianteRepository>();
 builder.Services.AddSingleton<ICarrera, CarreraRepository>();
 builder.Services.AddSingleton<IProfesor, ProfesorRepository>();
 builder.Services.AddSingleton<IGrupo, GrupoRepository>();

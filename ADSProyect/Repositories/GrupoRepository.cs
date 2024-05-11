@@ -1,26 +1,41 @@
-﻿using ADSProyect.Interfaces;
+﻿using ADSProyect.DB;
+using ADSProyect.Interfaces;
+using ADSProyect.Migrations;
 using ADSProyect.Models;
 
 namespace ADSProyect.Repositories
 {
     public class GrupoRepository : IGrupo
     {
-        private List<Grupo> lstGrupo = new List<Grupo>
-{
-    new Grupo{IdGrupo = 1, IdCarrera = 1, IdMateria = 1,
-    IdProfesor = 1, Ciclo = 1,
-    Anio = 2024}
-};
+        /*private List<Grupo> lstGrupo = new List<Grupo>
+        {
+            new Grupo{IdGrupo = 1, IdCarrera = 1, IdMateria = 1,
+            IdProfesor = 1, Ciclo = 1,
+            Anio = 2024}
+        };*/
+
+        private readonly ApplicationDbContext applicationDbContext;
+
+        public GrupoRepository(ApplicationDbContext applicationDbContext)
+        {
+            this.applicationDbContext = applicationDbContext;
+        }
 
         public int ActualizarGrupo(int idGrupo, Grupo grupo)
         {
             try
             {
-                //Obtener el indice del Objeto para actualizar 
+                /*//Obtener el indice del Objeto para actualizar 
                 int indice = lstGrupo.FindIndex(tmp => tmp.IdGrupo == idGrupo);
 
                 //procedemos con la actualizacion
-                lstGrupo[indice] = grupo;
+                lstGrupo[indice] = grupo;*/
+
+                var item = applicationDbContext.Grupos.SingleOrDefault(x => x.IdGrupo == idGrupo);
+
+                applicationDbContext.Entry(item).CurrentValues.SetValues(grupo);
+
+                applicationDbContext.SaveChanges();
 
                 return idGrupo;
             }
@@ -28,7 +43,7 @@ namespace ADSProyect.Repositories
             {
                 throw;
             }
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
         public int AgregarGrupo(Grupo grupo)
         {
@@ -36,11 +51,15 @@ namespace ADSProyect.Repositories
             {
                 //validar si existen datos en la lista, debe se asi, tomaremos el ultimo ID
                 // y lo incrementamos en una unidad 
-                if (lstGrupo.Count > 0)
+                /*if (lstGrupo.Count > 0)
                 {
                     grupo.IdGrupo = lstGrupo.Last().IdGrupo + 1;
                 }
-                lstGrupo.Add(grupo);
+                lstGrupo.Add(grupo);*/
+
+                applicationDbContext.Grupos.Add(grupo);
+                applicationDbContext.SaveChanges();
+
                 return grupo.IdGrupo;
             }
             catch (Exception)
@@ -53,11 +72,17 @@ namespace ADSProyect.Repositories
         {
             try
             {
-                //Obtener el indice del Objeto para Eliminar 
+                /*//Obtener el indice del Objeto para Eliminar 
                 int indice = lstGrupo.FindIndex(tmp => tmp.IdGrupo == idGrupo);
 
                 //procedemos a eliminar el registro
-                lstGrupo.RemoveAt(indice);
+                lstGrupo.RemoveAt(indice);*/
+
+                var item = applicationDbContext.Grupos.SingleOrDefault(x => x.IdGrupo == idGrupo);
+
+                applicationDbContext.Grupos.Remove(item);
+
+                applicationDbContext.SaveChanges();
 
                 return true;
 
@@ -74,7 +99,9 @@ namespace ADSProyect.Repositories
             try
             {
 
-                Grupo grupo = lstGrupo.FirstOrDefault(tmp => tmp.IdGrupo == idGrupo);
+                //Grupo grupo = lstGrupo.FirstOrDefault(tmp => tmp.IdGrupo == idGrupo);
+
+                var grupo = applicationDbContext.Grupos.SingleOrDefault(x => x.IdGrupo == idGrupo);
 
                 return grupo;
 
@@ -90,7 +117,8 @@ namespace ADSProyect.Repositories
         {
             try
             {
-                return lstGrupo;
+                //return lstGrupo;
+                return applicationDbContext.Grupos.ToList();
             }
             catch (Exception)
             {
